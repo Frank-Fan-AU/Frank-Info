@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 开发背景
+这是我的第三版个人网站，第一版是react的静态网页，使用的模版看上去不错,但是太简单了
+第二版则是看了个别人的个人网站感觉很好，就拿来改了，但是这个模版用的人也太多了，没有设计感了
 
-## Getting Started
+这一版博客要自己设计一下，然后开源出来
 
-First, run the development server:
+# 功能设计：
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- home页要有酷炫的动效
+    - about part
+        - 简历下载按钮
+    - skill part技术栈的展示要有设计感，逻辑感，脑图一样
+    - project part
+    - blog part
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- blog page
+    - blog及其中图片放在vercel blob上
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- project page
+    - 只放能访问的project
+    - 已有project做好工程化
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- skill page
+    - 在这里列出自己已经会的技术的，点击可以弹出我用这个技术做了什么
+    - 如果是工具类的，比如shadcnui这种就给个官网链接还有相关博客链接
+    - 列出我准备学习的技术的roadmap，上面有圆形进度条，点击进去后右侧弹出我的学习计划，学习目标
 
-## Learn More
+- demo page
+    - 在这里列出demo卡片，一个按钮通向预览，一个按钮通向博客-代码片段
 
-To learn more about Next.js, take a look at the following resources:
+- 整体layout
+    - 改成header + 内容这种上下布局
+    - 做每个page components的时候都要考虑到响应式，尤其是在手机上显示的效果
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 要有中英文切换
+    - 难点：在设计时考虑好博客、project这种如何中英文切换
+        - 思路：有个语言切换按钮，当用户是中文时走中文路由，当用户是英文走英文的路由
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 技术栈及使用组件库
+这个项目也是为了巩固已有技术和尽量多的使用我需要学习的技术，所以在一开始我就规定了我要用到如下技术栈
 
-## Deploy on Vercel
+- Nextjs
+- tailwindcss
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+有了前两次的经历打算这次把后端单独拿出来用express来写，这样之后再开新项目直接后端还能接着用
+- express
+- postgresql
+- blob
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- OpenAi API
+能根据我的个人经历跟人对话，比如有人问我澳洲怎么样啊之类的就能通过我的文章给他回答
+
+- 组件库
+    - shadcn
+    - motion
