@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "主页",
+    "blog": "博客",
+    "projects": "项目",
+    "skills": "技能",
+    "demo": "Demo",
+    "about": "关于我"
+  }
+} 

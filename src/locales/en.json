@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "projects": "Projects",
+    "skills": "Skills",
+    "demo": "Demo",
+    "about": "About"
+  }
+} 

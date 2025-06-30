@@ -53,3 +53,4 @@
 - 组件库
     - shadcn
     - motion
+    - 使用一下lotti
