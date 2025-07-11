@@ -5,6 +5,7 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 import Link from 'next/link';
 import useTranslation from '@/hooks/useTranslation';
 import { usePathname } from 'next/navigation';
+import Navbar from './Navbar';
 
 export function Header() {
   const { language } = useI18n();
@@ -22,7 +23,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href={`/${language}`} className="flex items-center space-x-2">
@@ -35,25 +36,7 @@ export function Header() {
           </Link>
 
           {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 bg-white dark:bg-gray-900 rounded-4xl  shadow-md">
-            {navItems.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.key}
-                  href={item.href}
-                  className={`px-4 py-2 rounded-4xl transition-all duration-200 font-medium ${
-                    isActive
-                      ? 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  {item.key}
-                </Link>
-              );
-            })}
-          </nav>
-
+         <Navbar />
           {/* Language Switcher */}
           <div className="flex items-center space-x-4">
             <LanguageSwitcher />
