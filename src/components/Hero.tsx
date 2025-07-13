@@ -1,4 +1,5 @@
 import HeroAnimation from "./HeroAnimation";
+import Socials from "./Socials";
 
 
 export default function Hero() {
@@ -31,7 +32,7 @@ export default function Hero() {
                 </div>
             </div>
 
-          <div className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 max-w-6xl  space-y-2">
+          <div className="text-lg mt-8 leading-relaxed text-gray-600 dark:text-gray-300 max-w-6xl  space-y-2">
             <p>Fullstack Developer especially in Frontend side, with a passion for working on interesting projects and exploring new technologies.</p>
             <p>I work with TypeScript and specialize in all-things web.</p>
             <p>I thrive on collaborating with teams to deliver efficient, scalable, and visually appealing web applications.</p>
@@ -40,8 +41,9 @@ export default function Hero() {
           <p className="mt-8">
           Work Rights: Australian temporary visa with no restrictions (e.g., doctoral student visa).
           </p>
-
-            {/* <Socials /> */}
+          <div className="mt-8">
+            <Socials     />
+          </div>
         </div>
     )
 }
