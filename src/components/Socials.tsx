@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 export default function Socials() {
     return (
@@ -10,7 +10,16 @@ export default function Socials() {
             >
                 <Linkedin />
             </Link>
-
+            <Link
+            className="flex items-center justify-center w-8 h-8 p-[5px] duration-500 opacity-60 hover:opacity-100 border-muted-foreground "
+            href={"https://github.com/Frank-Fan-AU"}
+            target="_blank"
+        >
+            <Github />
+        </Link>
         </div>
+
+     
+
     )
 }
