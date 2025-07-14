@@ -10,16 +10,45 @@ import {
 } from 'lucide-react';
 import TechCard from './TechCard';
 
-const technologies = [
-  { icon: Code2, name: 'React', description: '现代前端框架，构建用户界面' },
-  { icon: Globe, name: 'Next.js', description: '全栈React框架，服务端渲染' },
-  { icon: Database, name: 'TypeScript', description: '类型安全的JavaScript超集' },
-  { icon: Smartphone, name: 'Mobile Dev', description: '移动端应用开发' },
-  { icon: Zap, name: 'Performance', description: '性能优化和最佳实践' },
-  { icon: Shield, name: 'Security', description: '网络安全和防护' },
-  { icon: Palette, name: 'UI/UX', description: '用户界面和体验设计' },
-  { icon: Cpu, name: 'Backend', description: '后端服务和API开发' },
+const FrontendTechnologies = [
+  { icon: Code2, name: 'React', description: '' },
+  { icon: Globe, name: 'Next.js', description: '' },
+  { icon: Database, name: 'JavaScript', description: '' },
+  { icon: Smartphone, name: 'TypeScript', description: '' },
+  { icon: Smartphone, name: 'React Native', description: '' },
+  { icon: Smartphone, name: 'Tailwind CSS', description: '' },
+  { icon: Smartphone, name: 'Vue', description: '' },
+  { icon: Smartphone, name: 'Jest', description: '' },
+  { icon: Smartphone, name: 'Playwright', description: '' },
+  { icon: Smartphone, name: 'Webpack', description: '' },
+  { icon: Smartphone, name: 'Vite', description: '' }
+
 ];
+
+const BackendTechnologies = [
+  { icon: Code2, name: 'Node.js', description: '' },
+  { icon: Globe, name: 'Express', description: '' },
+  { icon: Smartphone, name: 'AWS Lambda', description: '' },
+  { icon: Database, name: 'Java', description: '' },
+  { icon: Smartphone, name: 'Spring Boot', description: '' },
+  { icon: Smartphone, name: 'C#', description: '' },
+  { icon: Smartphone, name: 'ASP.NET', description: '' },
+  { icon: Smartphone, name: 'MySQL', description: '' },
+  { icon: Smartphone, name: 'MongoDB', description: '' },
+  { icon: Smartphone, name: 'PostgreSQL', description: '' },
+  { icon: Smartphone, name: 'Redis', description: '' },
+  { icon: Smartphone, name: 'AWS S3', description: '' }
+]
+
+const OtherTechnologies = [
+  { icon: Smartphone, name: 'Git', description: '' },
+  { icon: Smartphone, name: 'Jenkins', description: '' },
+  { icon: Smartphone, name: 'Docker', description: '' },
+  { icon: Smartphone, name: 'Kubernetes', description: '' },
+  { icon: Smartphone, name: 'CI/CD', description: '' },
+  { icon: Smartphone, name: 'AWS', description: '' },
+  { icon: Smartphone, name: 'Azure', description: '' },
+]
 
 export default function TechStack() {
   return (
@@ -32,7 +61,7 @@ export default function TechStack() {
           In Frontend, I can do well in
         </h3>
         <div className="flex flex-wrap gap-3 mb-8">
-          {technologies.map((tech, index) => (
+          {FrontendTechnologies.map((tech, index) => (
             <TechCard
               key={index}
               icon={tech.icon}
@@ -48,7 +77,7 @@ export default function TechStack() {
           In Backend, I can do well in
         </h3>
         <div className="flex flex-wrap gap-3 mb-8">
-          {technologies.map((tech, index) => (
+          {BackendTechnologies.map((tech, index) => (
             <TechCard
               key={index}
               icon={tech.icon}
@@ -64,7 +93,7 @@ export default function TechStack() {
           I also have experience in these tools
         </h3>
         <div className="flex flex-wrap gap-3">
-          {technologies.map((tech, index) => (
+          {OtherTechnologies.map((tech, index) => (
             <TechCard
               key={index}
               icon={tech.icon}
