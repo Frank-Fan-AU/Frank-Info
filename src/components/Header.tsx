@@ -6,11 +6,33 @@ import Link from 'next/link';
 import useTranslation from '@/hooks/useTranslation';
 import { usePathname } from 'next/navigation';
 import Navbar from './Navbar';
+import { useState, useEffect } from 'react';
 
 export function Header() {
   const { language } = useI18n();
   const { t } = useTranslation();
   const pathname = usePathname();
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // 如果滚动到顶部，显示所有元素
+      if (currentScrollY <= 10) {
+        setIsVisible(true);
+      } else {
+        // 向下滚动时隐藏，向上滚动时显示
+        setIsVisible(currentScrollY < lastScrollY);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const navItems = [
     { key: t.nav.home, href: `/${language}` },
@@ -26,19 +48,21 @@ export function Header() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href={`/${language}`} className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">F</span>
-            </div>
-            <span className="font-bold text-xl text-gray-900 dark:text-white">
-              Frank Fan
-            </span>
-          </Link>
+          <div className={`transition-all duration-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>
+            <Link href={`/${language}`} className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">F</span>
+              </div>
+              <span className="font-bold text-xl text-gray-900 dark:text-white">
+                Frank Fan
+              </span>
+            </Link>
+          </div>
 
           {/* Navigation */}
          <Navbar />
           {/* Language Switcher */}
-          <div className="flex items-center space-x-4">
+          <div className={`flex items-center space-x-4 transition-all duration-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}>
             <LanguageSwitcher />
             
             {/* Mobile menu button */}

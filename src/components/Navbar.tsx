@@ -1,11 +1,10 @@
 import { useI18n } from '@/contexts/i18n-context';
-import { LanguageSwitcher } from './LanguageSwitcher';
 import Link from 'next/link';
 import useTranslation from '@/hooks/useTranslation';
 import { usePathname } from 'next/navigation';
 import { motion } from "motion/react"
 
-export default function Navbar({ className }: { className?: string }) {
+export default function Navbar() {
     const { language } = useI18n();
     const { t } = useTranslation();
     const pathname = usePathname();
@@ -22,7 +21,7 @@ export default function Navbar({ className }: { className?: string }) {
     return (
         <>
       <div className="justify-center hidden col-span-2 mt-0.5 sm:flex h-14">
-        <ul className="items-center justify-center hidden bg-[#f2f2f21a] rounded-full sm:flex px-2 py-1 ">
+        <ul className="items-center justify-center hidden bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-full sm:flex px-2 py-1 shadow-sm border border-gray-200/50 dark:border-gray-700/50">
           {navItems.map((item) => {
             const isSelected = pathname == item.href;
             return (

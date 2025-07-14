@@ -5,6 +5,7 @@ import { Lang, useI18n } from '@/contexts/i18n-context';
 import Hero from '@/components/Hero';
 import TechStack from '@/components/TechStack';
 import LearnMore from '@/components/LearnMore';
+import Experience from '@/components/Experience';
 
 export default function HomePage({
   params,
@@ -27,6 +28,9 @@ export default function HomePage({
         </div>
       <div className="mt-16">
         <TechStack />
+      </div>
+      <div className="mt-16">
+        <Experience />
       </div>
     </div>
   );
