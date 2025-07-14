@@ -18,7 +18,6 @@ export function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
       // 如果滚动到顶部，显示所有元素
       if (currentScrollY <= 10) {
         setIsVisible(true);
