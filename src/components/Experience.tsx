@@ -6,39 +6,17 @@ export default function Experience() {
             </h2>
             
             <div className="flex flex-wrap gap-3 mb-8">
-                I have worked in Beijing, China for 4 years. A company called China Sports Lottery Technology Company. 
-                May be it&apos;s not famous in other countries. But if you talk about the Sports lottery, Every Chinese knows it.
+                I have worked in Beijing, China for 4 years at a company called China Sports Lottery Technology Company. 
+                While it may not be well-known internationally, every Chinese person knows about the Sports Lottery.
             </div>
-            <div>
-                我在这家公司的监控团队工作，最开始负责后端工具的开发，后来随着组织结构调整，我想着全栈工程师听上去很不错，有一种一个人hold住所有的感觉，于是我就接过了前端开发的工作。
-                虽说不是同时干，但是先干后端再干前端，又何尝不是一种全栈呢？
+            <div className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                I worked in the monitoring team at this company, initially responsible for backend tool development. Later, as the organizational structure changed, I thought becoming a full-stack engineer sounded great - it gave me a sense of being able to handle everything independently. So I took on frontend development work as well.
+                While I wasn't doing both simultaneously, starting with backend and then moving to frontend is still a form of full-stack development, isn't it?
             </div>
-            <div>
-                就这样干着，我们部门被放到了架构部，算是最好的技术团队，甚至在光景不好的23年和24年还有涨薪，一切都在往好的方向发展，这份工作也真的很不错。但是。。。read more click here
+            <div className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                As we continued working, our department was moved to the architecture division, which is considered the best technical team. Even during the challenging years of 2023 and 2024, we still received salary increases. Everything was moving in a positive direction, and this job was truly excellent. However... <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline">read more</a>
             </div>
-            {/* <div>
-                但是女朋友在国内的工作并不开心，很压抑。24年2月份，女朋友想来澳洲读个博士，征求我的意见，我不陪她她就算了。我想支持女朋友的发展，并且我觉得趁年轻出去看看世界也是好的（当然我知道怎么选择都会后悔，但是我当时就是想试试）
-            </div>
-            <div>
-                于是他开始准备申请学校签证，我开始准备澳洲这边的技术，Nextjs, AWS, Nodejs，其实大部分还是相同的，而且在有了AI之后学习其实很快。
-            </div>
-            <div>
-                25年2月，终于等到了签证，我辞去了工作，做了一个月的交接，3月来到澳洲 阿德莱德这座城市。这还是我第一次出国。
-            </div>
-            <div>
-                希望我能在这个陌生的国家继续找到我喜爱的it工作，
-            </div>
-            <div>
-                现在是7月了，我还没有找到一份it工作，白天还好，但是我时常会在深夜后悔自己当初的决定，或许在当初我应该继续在北京工作，现在依旧过着舒适自在的生活，还在自己的舒适圈，后悔自己为什么非要出来看看，我不出来也不会像现在这样焦虑。
-                看到了外面的世界又怎么样，
-                我的胃还是中国胃，我的朋友也还是中国的朋友，家人也都在中国，不过是走马观花，融入澳洲社会对我现在来说确实还是件困难的事情
-
-                2025年7月15号，终于收到了第一个phone screen，我终于有燃起了一些信心，在这期间真的很感谢漂泊哥，他不仅仅是帮我改简历，还有很关键的一点是给我打气，让我能有信心继续找it的工作
-
-                （其实我觉得我耽误了很长一段时间，我在5月初的时候找David给改过一版，5-7月之间并没有phone screen，应该早点找漂泊哥给我改改简历的，感觉之前的无效投递浪费了很多机会）
-
-                我的故事孩子继续，加油，也许等我找到it工作，在这边的日子也稳定下来后，就不会后悔当初的决定了吧
-            </div> */}
+           
         </div>
     )
 }

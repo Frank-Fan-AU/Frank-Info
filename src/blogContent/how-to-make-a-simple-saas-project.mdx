@@ -1,0 +1,116 @@
+# Building a Simple SaaS Project with Next.js, TypeScript, Supabase, and Stripe
+
+# Local Development Setup
+
+## 1. Install Required Tools
+
+First, let's install the necessary CLI tools:
+
+```bash
+brew install supabase/tap/supabase
+brew install stripe/stripe-cli/stripe
+```
+
+Note: You'll need Docker installed to run Supabase locally.
+
+## 2. Clone the Project
+
+We'll start with a template project and customize it according to our needs:
+
+```bash
+git clone https://github.com/vercel/nextjs-subscription-payments.git
+```
+
+## 3. Set Up Supabase Locally
+
+### Configure Environment Variables
+
+1. Update the `.env` file with GitHub OAuth credentials:
+   - Go to GitHub → Settings → Developer Settings → OAuth Apps
+   - Register a new OAuth application
+   - Set the Authorization callback URL to match `SUPABASE_AUTH_EXTERNAL_GITHUB_REDIRECT_URI`
+   - Copy the Client ID and Secret to your `.env` file
+
+2. Update `.env.local` with Supabase credentials:
+   - Run `npx supabase start` in your terminal
+   - Copy the following values from the output:
+     - `service_role key`
+     - `anon key`
+   - Access the Supabase Studio at http://127.0.0.1:54323
+
+## 4. Set Up Stripe Locally
+
+1. Create a new Stripe sandbox account
+2. Copy the API keys to `.env.local`
+3. Run `stripe login` and authenticate
+4. Start the webhook listener:
+   ```bash
+   npm run stripe:listen
+   ```
+5. Copy the webhook signing secret to `.env.local` as `STRIPE_WEBHOOK_SECRET`
+
+## 5. Start the Application
+
+```bash
+npm install
+npm run dev
+```
+
+The application should now be running at http://localhost:3000
+
+You can add products through the Stripe dashboard and see them reflected in your application.
+
+# Production Deployment
+
+## 1. Deploy Supabase to Production
+
+1. Create a new project in Supabase Cloud
+2. Link your local project:
+   ```bash
+   supabase login
+   supabase link --project-ref <project-id>
+   ```
+3. Push your database schema:
+   ```bash
+   supabase db push
+   ```
+
+## 2. Deploy to Vercel
+
+1. Update the following environment variables in Vercel:
+   ```env
+   NEXT_PUBLIC_SUPABASE_ANON_KEY
+   NEXT_PUBLIC_SUPABASE_URL
+   SUPABASE_SERVICE_ROLE_KEY
+   ```
+
+## 3. Configure Stripe for Production
+
+1. Update Stripe environment variables:
+   ```env
+   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+   STRIPE_SECRET_KEY
+   ```
+
+2. Create a new webhook:
+   - Go to Stripe Dashboard → Developers → Webhooks
+   - Create a new webhook
+   - Set the Endpoint URL to your production URL/api/webhooks
+
+## 4. Configure Authentication
+
+1. Update Supabase Authentication settings:
+   - Set the Site URL to your production URL
+   - Update GitHub OAuth settings:
+     - Set Homepage URL to your production URL
+     - Update Callback URL from Supabase provider settings
+
+2. Add the following environment variables to Vercel:
+   ```env
+   SUPABASE_AUTH_EXTERNAL_GITHUB_REDIRECT_URI=https://<your-domain>/api/auth/callback
+   SUPABASE_AUTH_EXTERNAL_GITHUB_CLIENT_ID
+   SUPABASE_AUTH_EXTERNAL_GITHUB_SECRET
+   ```
+
+Test the deployment by creating a new product and verifying it appears on your production site.
+

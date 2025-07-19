@@ -1,0 +1,27 @@
+Project Background:
+
+At my previous company, I was primarily responsible for the front-end development of the monitoring system. My responsibilities included understanding various monitoring metrics, retrieving data from the backend, and presenting these metrics through a variety of visualization components. The goal was to help operations staff quickly detect issues through alarms, swiftly locate problems through topology maps, and assist in problem-solving by matching emergency procedures.
+
+Project Description:
+
+Over the four years at the company, I was involved in several projects. This monitoring system replication project highlights the most valuable parts of my work. It extracts and refines the experiences and knowledge I accumulated, showcasing different display formats and replicating several key features.
+
+Data for the monitoring system primarily comes from multiple alarm platforms, such as Zabbix, Omnibux, AlertManager, log alarms, and metric alarms. All alarm data is aggregated into an alarm platform and stored in Elasticsearch. The backend retrieves, processes, and returns the data for display on the front-end. In some cases, the project required me to directly fetch data from Elasticsearch.
+
+In this project, I have taken on roles both in backend and front-end development. Since replicating the backend components was unnecessary and overly complex for the front-end work I was targeting, I chose to use Hono.js as the backend framework. Through RESTful APIs and WebSockets, I simulated the most common front-end and back-end interactions by providing mock data.
+
+Project Highlights:
+
+Initially, the platform only supported mobile devices. However, as the project evolved, there was a growing demand to ensure a good display experience on desktop as well. I redesigned the layout and styles, restructuring the homepage and several commonly used pages, which received positive feedback and recognition (including a few bonuses).
+
+In the project, I used G6 to create topology maps, depicting system architecture and network topologies, and linked these maps to alarms. When an issue occurs, abnormal nodes in the topology map turn red and blink, enabling operations staff to quickly detect the problem. By pinpointing the location of these nodes, they can accurately locate the issue and assess the impact. This innovative feature was highly appreciated and led to additional rewards.
+
+Project Tech Stack:
+	•	Vue 2
+	•	Tailwind CSS
+	•	Highcharts
+	•	Element UI
+	•	Ant Design Vue (AntDV)
+	•	G6
+
+This project not only demonstrated my technical expertise in front-end development but also showcased my design and architectural thinking. By implementing innovative features, I was able to address key pain points faced by operations teams, gaining high recognition from the team and rewards.
