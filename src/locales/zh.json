@@ -6,5 +6,59 @@
     "skills": "技能",
     "demo": "Demo",
     "about": "关于我"
+  },
+  "about": {
+    "title": "关于我",
+    "subtitle": "全栈开发者 | 澳洲技术移民",
+    "education": {
+      "title": "教育经历",
+      "university": "海南大学",
+      "degree": "本科 | 计算机科学与技术",
+      "period": "2017 - 2021",
+      "description": "211院校"
+    },
+    "certificates": {
+      "title": "专业证书",
+      "aws": "AWS 解决方案架构师认证"
+    },
+    "experience": {
+      "title": "工作经历",
+      "current": {
+        "company": "中体彩科技发展有限责任公司",
+        "position": "全栈开发工程师",
+        "period": "2021-07-16 - 2025-02-28",
+        "description": "负责前端和后端开发，使用React、Node.js和云服务"
+      },
+      "previous": {
+        "company": "中体彩科技发展有限责任公司",
+        "position": "java实习生",
+        "period": "2020-10 - 2021-02",
+        "description": "使用Java开发RESTful API"
+      }
+    },
+    "australia": {
+      "title": "澳洲生活",
+      "description": "2025年3月搬到阿德莱德，开始了新的技术移民之旅。在这里，熟悉新的生活环境的同时，积极在开源项目中贡献代码，希望我能在澳洲找到一份新的工作，尽快的融入澳洲的生活。"
+    },
+    "equipment": {
+      "title": "舒适的居家办工环境",
+      "macbook": "MacBook Pro 14\" M1",
+      "monitor1": "27\" 4K 显示器",
+      "monitor2": "24\" 1080P 显示器",
+      "desk":"升降办工桌"
+    },
+    "visa": {
+      "title": "签证状态",
+      "status": "学生签证500",
+      "description": "跟主签一样是500签证，由于是博士陪读签证，所以没有工作时间的限制，可以从事全职工作（已在seek pass中认证）",
+      "expiry": "有效期至：2030年",
+      "additional": "博士毕业后还有三年工签陪读，理论上2033年之前都有能全职工作的签证，不需要公司担保签证。如果顺利找到工作，工作这么久应该就有PR了。"
+    },
+    "contact": {
+      "title": "联系方式",
+      "email": "fanzejiea@gmail.com",
+      "location": "阿德莱德，澳大利亚"
+    },
+    "regards": "期待与您合作！"
   }
 } 

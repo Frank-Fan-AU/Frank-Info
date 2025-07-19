@@ -6,5 +6,59 @@
     "skills": "Skills",
     "demo": "Demo",
     "about": "About"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Full Stack Developer | Australian Tech Migrant",
+    "education": {
+      "title": "Education",
+      "university": "Hainan University",
+      "degree": "Bachelor | Computer Science and Technology",
+      "period": "2017 - 2021",
+      "description": "211 University"
+    },
+    "certificates": {
+      "title": "Professional Certificates",
+      "aws": "AWS Solutions Architect Certification"
+    },
+    "experience": {
+      "title": "Work Experience",
+      "current": {
+        "company": "China Sports Lottery Technology Development Co., Ltd",
+        "position": "Full Stack Developer",
+        "period": "2021-07-16 - 2025-02-28",
+        "description": "Responsible for frontend and backend development using React, Node.js and cloud services"
+      },
+      "previous": {
+        "company": "China Sports Lottery Technology Development Co., Ltd",
+        "position": "Java Intern",
+        "period": "2020-10 - 2021-02",
+        "description": "Developed RESTful APIs using Java"
+      }
+    },
+    "australia": {
+      "title": "Life in Australia",
+      "description": "Moved to Adelaide in March 2025, starting a new journey as a tech migrant. Here, while adapting to the new living environment, I actively contribute to open source projects, hoping to find a new job in Australia and quickly integrate into Australian life."
+    },
+    "equipment": {
+      "title": "Comfortable Home Office Environment",
+      "macbook": "MacBook Pro 14\" M1",
+      "monitor1": "27\" 4K Monitor",
+      "monitor2": "24\" 1080P Monitor",
+      "desk": "Adjustable Standing Desk"
+    },
+    "visa": {
+      "title": "Visa Status",
+      "status": "Student Visa 500",
+      "description": "Same as the primary visa holder (500 visa), as a PhD accompanying visa, there are no work hour restrictions and I can work full-time (verified in Seek Pass)",
+      "expiry": "Valid until: 2030",
+      "additional": "After PhD graduation, there will be an additional 3-year work visa as accompanying spouse. Theoretically, I can work full-time without employer sponsorship until 2033. If I successfully find employment, working for this duration should qualify me for Permanent Residency (PR)."
+    },
+    "contact": {
+      "title": "Contact Information",
+      "email": "fanzejiea@gmail.com",
+      "location": "Adelaide, Australia"
+    },
+    "regards": "Looking forward to collaborating with you!"
   }
 } 
