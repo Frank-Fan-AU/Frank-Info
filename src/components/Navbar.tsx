@@ -13,8 +13,8 @@ export default function Navbar() {
         { name: t.nav.home, href: `/${language}` },
         { name: t.nav.blog, href: `/${language}/blog` },
         { name: t.nav.projects, href: `/${language}/projects` },
-        { name: t.nav.skills, href: `/${language}/skills` },
-        { name: t.nav.demo, href: `/${language}/demo` },
+        // { name: t.nav.skills, href: `/${language}/skills` },
+        // { name: t.nav.demo, href: `/${language}/demo` },
         { name: t.nav.about, href: `/${language}/about` },
     ];
 

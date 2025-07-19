@@ -28,7 +28,7 @@ export default function Hero() {
           <img
             src="/zj-avator.jpg"
             alt="Frank Fan"
-            className="w-32 h-32 rounded-full shadow-lg object-cover"
+            className="w-40 h-40 rounded-full shadow-lg object-cover"
           />
         </div>
       </div>
