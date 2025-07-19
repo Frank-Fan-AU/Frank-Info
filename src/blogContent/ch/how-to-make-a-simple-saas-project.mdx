@@ -1,0 +1,115 @@
+# 使用Next.js、TypeScript、Supabase和Stripe构建简单的SaaS项目
+
+# 本地开发设置
+
+## 1. 安装必需工具
+
+首先，让我们安装必要的CLI工具：
+
+```bash
+brew install supabase/tap/supabase
+brew install stripe/stripe-cli/stripe
+```
+
+注意：你需要在本地运行Supabase时安装Docker。
+
+## 2. 克隆项目
+
+我们将从一个模板项目开始，并根据我们的需求进行定制：
+
+```bash
+git clone https://github.com/vercel/nextjs-subscription-payments.git
+```
+
+## 3. 本地设置Supabase
+
+### 配置环境变量
+
+1. 使用GitHub OAuth凭据更新`.env`文件：
+   - 转到GitHub → Settings → Developer Settings → OAuth Apps
+   - 注册一个新的OAuth应用程序
+   - 将Authorization callback URL设置为匹配`SUPABASE_AUTH_EXTERNAL_GITHUB_REDIRECT_URI`
+   - 将Client ID和Secret复制到你的`.env`文件
+
+2. 使用Supabase凭据更新`.env.local`：
+   - 在终端中运行`npx supabase start`
+   - 从输出中复制以下值：
+     - `service_role key`
+     - `anon key`
+   - 在http://127.0.0.1:54323访问Supabase Studio
+
+## 4. 本地设置Stripe
+
+1. 创建一个新的Stripe沙盒账户
+2. 将API密钥复制到`.env.local`
+3. 运行`stripe login`并进行身份验证
+4. 启动webhook监听器：
+   ```bash
+   npm run stripe:listen
+   ```
+5. 将webhook签名密钥复制到`.env.local`作为`STRIPE_WEBHOOK_SECRET`
+
+## 5. 启动应用程序
+
+```bash
+npm install
+npm run dev
+```
+
+应用程序现在应该在http://localhost:3000运行
+
+你可以通过Stripe仪表板添加产品，并在你的应用程序中看到它们。
+
+# 生产部署
+
+## 1. 将Supabase部署到生产环境
+
+1. 在Supabase Cloud中创建一个新项目
+2. 链接你的本地项目：
+   ```bash
+   supabase login
+   supabase link --project-ref <project-id>
+   ```
+3. 推送你的数据库模式：
+   ```bash
+   supabase db push
+   ```
+
+## 2. 部署到Vercel
+
+1. 在Vercel中更新以下环境变量：
+   ```env
+   NEXT_PUBLIC_SUPABASE_ANON_KEY
+   NEXT_PUBLIC_SUPABASE_URL
+   SUPABASE_SERVICE_ROLE_KEY
+   ```
+
+## 3. 为生产环境配置Stripe
+
+1. 更新Stripe环境变量：
+   ```env
+   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+   STRIPE_SECRET_KEY
+   ```
+
+2. 创建一个新的webhook：
+   - 转到Stripe Dashboard → Developers → Webhooks
+   - 创建一个新的webhook
+   - 将Endpoint URL设置为你的生产URL/api/webhooks
+
+## 4. 配置身份验证
+
+1. 更新Supabase身份验证设置：
+   - 将Site URL设置为你的生产URL
+   - 更新GitHub OAuth设置：
+     - 将Homepage URL设置为你的生产URL
+     - 从Supabase提供商设置更新Callback URL
+
+2. 将以下环境变量添加到Vercel：
+   ```env
+   SUPABASE_AUTH_EXTERNAL_GITHUB_REDIRECT_URI=https://<your-domain>/api/auth/callback
+   SUPABASE_AUTH_EXTERNAL_GITHUB_CLIENT_ID
+   SUPABASE_AUTH_EXTERNAL_GITHUB_SECRET
+   ```
+
+通过创建新产品并验证它出现在你的生产站点上来测试部署。 

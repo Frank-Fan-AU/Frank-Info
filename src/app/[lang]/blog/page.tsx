@@ -3,7 +3,7 @@
 import { Lang, useI18n } from '@/contexts/i18n-context';
 import Link from 'next/link';
 import { use } from 'react';
-import { BLOG_ITEMS } from '@/constant/blog';
+import { BLOG_ITEMS_EN, BLOG_ITEMS_ZH } from '@/constant/blog';
 import { useState, useMemo } from 'react';
 
 export default function BlogPage({
@@ -16,12 +16,21 @@ export default function BlogPage({
   const [searchQuery, setSearchQuery] = useState('');
   
   const posts = useMemo(() => {
-    const allPosts = BLOG_ITEMS.filter(post => post.is_show);
-    if (!searchQuery.trim()) return allPosts;
+    // 根据语言选择对应的博客列表
+    const allPosts = language === 'zh' ? BLOG_ITEMS_ZH : BLOG_ITEMS_EN;
+    const filteredPosts = allPosts.filter(post => post.is_show);
     
-    return allPosts.filter(post => {
-      const title = post.title[language].toLowerCase();
-      const description = post.description[language].toLowerCase();
+    // 先按日期排序，最近的排在前面
+    const sortedPosts = filteredPosts.sort((a, b) => 
+      new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
+    );
+    
+    // 如果有搜索查询，再进行过滤
+    if (!searchQuery.trim()) return sortedPosts;
+    
+    return sortedPosts.filter(post => {
+      const title = post.title.toLowerCase();
+      const description = post.description.toLowerCase();
       const tags = post.tags.join(' ').toLowerCase();
       const query = searchQuery.toLowerCase();
       
@@ -32,7 +41,7 @@ export default function BlogPage({
   }, [searchQuery, language]);
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -82,11 +91,11 @@ export default function BlogPage({
               </div>
               
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                {post.title[language]}
+                {post.title}
               </h2>
               
               <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
-                {post.description[language]}
+                {post.description}
               </p>
               
               <div className="flex flex-wrap gap-2 mb-4">

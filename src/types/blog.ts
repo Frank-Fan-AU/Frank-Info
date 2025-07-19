@@ -1,13 +1,7 @@
 export interface BlogItemProps {
-    title: {
-      en: string;
-      zh: string;
-    };
+    title: string;
     slug: string;
-    description: {
-      en: string;
-      zh: string;
-    };
+    description: string;
     image?: string;
     is_show: boolean;
     is_featured: boolean;
