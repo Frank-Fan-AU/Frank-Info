@@ -1,17 +1,18 @@
 import { LucideIcon } from 'lucide-react';
+import { IconType } from 'react-icons';
 
 interface TechCardProps {
-  icon: LucideIcon;
+  icon: LucideIcon | IconType;
   name: string;
   description?: string;
   className?: string;
 }
 
-export default function TechCard({ icon: Icon, name, description, className = '' }: TechCardProps) {
+export default function TechCard({ icon: Icon, name, description, className }: TechCardProps) {
   return (
-    <div className={`relative flex items-center gap-3 px-4 py-2 z-10 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 group ${className}`}>
+    <div className="relative flex items-center gap-3 px-4 py-2 z-10 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 group">
       <div className="flex items-center justify-center w-6 h-6">
-        <Icon className="w-4 h-4 text-gray-600 group-hover:text-gray-800 transition-colors duration-300" />
+        <Icon className={`w-5 h-5 transition-colors duration-300 ${className || 'text-gray-600 group-hover:text-gray-800'}`} />
       </div>
       <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
         {name}
