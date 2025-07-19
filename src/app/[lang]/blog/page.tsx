@@ -1,18 +1,12 @@
 'use client';
 
-import { Lang, useI18n } from '@/contexts/i18n-context';
+import {useI18n } from '@/contexts/i18n-context';
 import Link from 'next/link';
-import { use } from 'react';
 import { BLOG_ITEMS_EN, BLOG_ITEMS_ZH } from '@/constant/blog';
 import { useState, useMemo } from 'react';
 
-export default function BlogPage({
-  params,
-}: {
-  params: Promise<{ lang: Lang }>;
-}) {
+export default function BlogPage() {
   const { language } = useI18n();
-  const { lang } = use(params);
   const [searchQuery, setSearchQuery] = useState('');
   
   const posts = useMemo(() => {

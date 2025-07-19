@@ -12,13 +12,7 @@ export default function HomePage({
 }: {
   params: Promise<{ lang: Lang }>;
 }) {
-  const { language } = useI18n();  
-  const { lang } = use(params);
-
-  // 确保URL语言参数与当前语言状态一致
-  if (lang !== language) {
-    // 这里可以添加重定向逻辑
-  }
+  const { language } = useI18n();
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
