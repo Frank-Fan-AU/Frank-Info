@@ -1,3 +1,5 @@
+'use client';
+
 import { useI18n } from '@/contexts/i18n-context';
 import Link from 'next/link';
 import useTranslation from '@/hooks/useTranslation';
