@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export type Lang = 'en' | 'zh';
 
@@ -12,17 +13,26 @@ interface I18nContextProps {
 const I18nContext = createContext<I18nContextProps | undefined>(undefined);
 
 export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
+  const pathname = usePathname();
   const [language, setLanguageState] = useState<Lang>('en');
 
   useEffect(() => {
-    let storedLang = localStorage.getItem('lang') as Lang | null;
-    if (!storedLang) {
-      const browserLang = navigator.language;
-      storedLang = browserLang.startsWith('zh') ? 'zh' : 'en';
-      localStorage.setItem('lang', storedLang);
+    // 从URL中获取语言
+    const urlLang = pathname?.split('/')[1] as Lang;
+    if (urlLang === 'zh' || urlLang === 'en') {
+      setLanguageState(urlLang);
+      localStorage.setItem('lang', urlLang);
+    } else {
+      // 如果URL中没有语言，则从localStorage或浏览器语言获取
+      let storedLang = localStorage.getItem('lang') as Lang | null;
+      if (!storedLang) {
+        const browserLang = navigator.language;
+        storedLang = browserLang.startsWith('zh') ? 'zh' : 'en';
+        localStorage.setItem('lang', storedLang);
+      }
+      setLanguageState(storedLang);
     }
-    setLanguageState(storedLang);
-  }, []);
+  }, [pathname]);
 
   const setLanguage = (newLang: Lang) => {
     setLanguageState(newLang);

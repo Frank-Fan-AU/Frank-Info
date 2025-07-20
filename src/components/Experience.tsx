@@ -1,22 +1,29 @@
+'use client';
+
+import { useI18n } from '@/contexts/i18n-context';
+
 export default function Experience() {
+    const { language } = useI18n();
+    
     return (
-        <div className="w-full space-y-12">
+        <div className="w-full space-y-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-8">
                 What&apos;s my experience?
             </h2>
             
             <div className="flex flex-wrap gap-3 mb-8">
-                I have worked in Beijing, China for 4 years at a company called China Sports Lottery Technology Company. 
-                While it may not be well-known internationally, every Chinese person knows about the Sports Lottery.
+                I have a degree in Computer Science and Technology from Hainan University
             </div>
             <div className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-                I worked in the monitoring team at this company, initially responsible for backend tool development. Later, as the organizational structure changed, I thought becoming a full-stack engineer sounded great - it gave me a sense of being able to handle everything independently. So I took on frontend development work as well.
-                While I wasn't doing both simultaneously, starting with backend and then moving to frontend is still a form of full-stack development, isn't it?
+                Then I have been working as a software development engineer at China Sports Lottery Technology Development Co., Ltd. for four years.
             </div>
             <div className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                As we continued working, our department was moved to the architecture division, which is considered the best technical team. Even during the challenging years of 2023 and 2024, we still received salary increases. Everything was moving in a positive direction, and this job was truly excellent. However... <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline">read more</a>
+                Arrive in Australia in March 2025 to start a new life. 
             </div>
-           
+            <div className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                I hope I can find a local software development job as soon as possible to better integrate into local life. 
+            </div>
+            <a href={`/${language}/about`} className="text-blue-600 dark:text-blue-400 hover:underline">read more about me</a>
         </div>
     )
 }

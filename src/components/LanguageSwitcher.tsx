@@ -1,13 +1,22 @@
 'use client';
 
 import useTranslation from '@/hooks/useTranslation';
+import { useRouter, usePathname } from 'next/navigation';
 
 export function LanguageSwitcher() {
   const {language, setLanguage } = useTranslation();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const handleLanguageSwitch = () => {
     const newLanguage = language === 'zh' ? 'en' : 'zh';
     setLanguage(newLanguage);
+    
+    // 更新浏览器URL
+    const currentPath = pathname;
+    const pathWithoutLang = currentPath.replace(/^\/(zh|en)/, '');
+    const newPath = `/${newLanguage}${pathWithoutLang}`;
+    router.push(newPath);
   };
 
   return (
