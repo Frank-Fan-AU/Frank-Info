@@ -1,3 +1,5 @@
+'use client';
+
 import HeroAnimation from "./HeroAnimation";
 import Socials from "./Socials";
 import useTranslation from "@/hooks/useTranslation";
