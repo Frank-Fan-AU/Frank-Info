@@ -28,7 +28,7 @@ const BlogDetailPage = async ({ params }: {params:Promise<{slug:string, lang:str
     const source = fs.readFileSync(filePath, 'utf8');
     const { content: parsedContent } = matter(source);
     content = parsedContent;
-  } catch (error) {
+  } catch {
     console.error(`Blog content not found for slug: ${slug} in language: ${lang}`);
     content = lang === 'zh' ? '博客内容未找到' : 'Blog content not found';
   }

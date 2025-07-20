@@ -1,6 +1,7 @@
 import HeroAnimation from "./HeroAnimation";
 import Socials from "./Socials";
 import useTranslation from "@/hooks/useTranslation";
+import Image from "next/image";
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -27,7 +28,9 @@ export default function Hero() {
 
         {/* Avatar */}
         <div className="w-1/4">
-          <img
+          <Image
+            width={160}
+            height={160}
             src="/zj-avator.jpg"
             alt="Frank Fan"
             className="w-40 h-40 rounded-full shadow-lg object-cover"

@@ -33,7 +33,7 @@ interface CodeBlockProps {
   className?: string;
   children: string;
   inline?: boolean;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const CodeBlock = ({
@@ -43,10 +43,8 @@ const CodeBlock = ({
   ...props
 }: CodeBlockProps) => {
   const [isCopied, setIsCopied] = useState<boolean>(false);
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  const [value, copy] = useCopyToClipboard();
+  const [, copy] = useCopyToClipboard();
   const match = /language-(\w+)/.exec(className || '');
-  console.log('inline', inline);
   const handleCopy = (code: string) => {
     copy(code);
     setIsCopied(true);

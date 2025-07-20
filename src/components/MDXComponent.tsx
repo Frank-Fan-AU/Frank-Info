@@ -1,4 +1,3 @@
-/* eslint-disable unused-imports/no-unused-vars */
 import { ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -11,15 +10,7 @@ interface MarkdownRendererProps {
 
 interface TableProps {
   children?: ReactNode;
-  [key: string]: any;
-}
-
-interface CodeProps {
-  node?: any;
-  inline?: boolean;
-  className?: string;
-  children: ReactNode;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const Table = ({ children, ...props }: TableProps) => (
@@ -66,8 +57,8 @@ const MDXComponent = ({ children }: MarkdownRendererProps) => {
         ol: (props) => (
           <ol className='mb-4 list-decimal space-y-3 pb-2 pl-10' {...props} />
         ),
-        code: (props: any) => {
-          const { node, inline, className, children } = props;
+        code: (props) => {
+          const { className, children } = props;
           const match = /language-(\w+)/.exec(className || '');
           const isInline = !match && !className?.includes('language-');
           return (

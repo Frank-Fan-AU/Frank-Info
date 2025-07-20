@@ -1,17 +1,12 @@
 'use client';
 
 
-import { Lang, useI18n } from '@/contexts/i18n-context';
-import { use } from 'react';
+import {  useI18n } from '@/contexts/i18n-context';
 
 // 技能数据
 
 
-export default function SkillsPage({
-  params,
-}: {
-  params: Promise<{ lang: Lang }>;
-}) {
+export default function SkillsPage() {
   const { language } = useI18n();
 
 

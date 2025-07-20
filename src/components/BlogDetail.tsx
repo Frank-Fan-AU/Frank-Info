@@ -7,9 +7,6 @@ interface BlogDetailProps extends BlogItemProps {
 }
 
 const BlogDetail = ({
-    title,
-    image,
-    slug,
     content
 }: BlogDetailProps) => {
     return (

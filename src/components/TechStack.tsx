@@ -1,57 +1,32 @@
 import { FaJava } from "react-icons/fa";
 import { 
-  SiGraphql,
   SiJavascript,
   SiJest,
   SiNextdotjs,
-  SiNginx,
   SiNodedotjs,
-  SiPrisma,
-  SiMongoose,
   SiMysql,
   SiMongodb,
   SiReact,
-  SiRedux,
-  SiStyledcomponents,
   SiTailwindcss,
   SiTypescript,
   SiVite,
   SiVuedotjs,
   SiWebpack,
-  SiAwsamplify,
   SiDocker,
   SiKubernetes,
   SiJenkins,
-  SiHarbor,
   SiSpring,
-  SiShadcnui,
   SiAmazons3,
-  SiApacheecharts,
   SiAwslambda,
-  SiVercel,
   SiSharp,
   SiDotnet,
   SiRedis,
   SiGit,
   SiExpress,
   SiPostgresql,
-  SiGithubactions,
-  SiGitlab,
-  SiBitbucket,
-  SiSelenium,
-  SiCypress
+  SiGithubactions
 } from 'react-icons/si';
 
-import { 
-  Code2, 
-  Database, 
-  Globe, 
-  Smartphone, 
-  Zap, 
-  Shield,
-  Palette,
-  Cpu
-} from 'lucide-react';
 import TechCard from './TechCard';
 
 // 自定义Playwright图标组件
