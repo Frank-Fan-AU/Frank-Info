@@ -16,8 +16,8 @@ import {
   SiKubernetes,
   SiJenkins,
   SiSpring,
-  SiAmazons3,
   SiAwslambda,
+  SiAmazons3,
   SiSharp,
   SiDotnet,
   SiRedis,
@@ -26,7 +26,7 @@ import {
   SiPostgresql,
   SiGithubactions
 } from 'react-icons/si';
-
+import { LiaAws } from "react-icons/lia";
 import TechCard from './TechCard';
 
 // 自定义Playwright图标组件
@@ -85,7 +85,7 @@ const OtherTechnologies = [
   { icon: SiDocker, name: 'Docker', description: '', className: 'text-blue-500' },
   { icon: SiKubernetes, name: 'Kubernetes', description: '', className: 'text-blue-600' },
   { icon: SiGithubactions, name: 'CI/CD', description: '', className: 'text-purple-600' },
-  { icon: SiAmazons3, name: 'AWS', description: '', className: 'text-orange-500' },
+  { icon: LiaAws, name: 'AWS', description: '', className: 'text-yellow-500' },
 ]
 
 export default function TechStack() {
