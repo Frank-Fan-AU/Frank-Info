@@ -7,6 +7,13 @@
     "demo": "Demo",
     "about": "关于我"
   },
+  "hero": {
+    "title": "Hi, I'm Frank",
+    "description1": "全栈开发者，尤其在Frontend方面有热情，喜欢参与有趣的项目并探索新技术。",
+    "description2": "我使用TypeScript，专注于Web开发。",
+    "description3": "我擅长与团队合作，交付高效、可扩展且视觉吸引力的Web应用。",
+    "description4": "目前正在寻找澳洲的全职软件开发工作。"
+  },
   "about": {
     "title": "关于我",
     "subtitle": "全栈开发者 | 澳洲技术移民",

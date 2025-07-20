@@ -1,7 +1,9 @@
 import HeroAnimation from "./HeroAnimation";
 import Socials from "./Socials";
+import useTranslation from "@/hooks/useTranslation";
 
 export default function Hero() {
+  const { t } = useTranslation();
   return (
     <div className="max-w-6xl">
       <div className="flex items-start gap-4">
@@ -35,19 +37,16 @@ export default function Hero() {
 
       <div className="text-lg mt-8 leading-relaxed text-gray-600 dark:text-gray-300 max-w-6xl  space-y-2">
         <p>
-          Fullstack Developer especially in Frontend side, with a passion for
-          working on interesting projects and exploring new technologies.
+          {t.hero.description1}
         </p>
-        <p>I work with TypeScript and specialize in all-things web.</p>
+        <p>{t.hero.description2}</p>
         <p>
-          I thrive on collaborating with teams to deliver efficient, scalable,
-          and visually appealing web applications.
+          {t.hero.description3}
         </p>
       </div>
 
       <p className="mt-8">
-        Work Rights: Australian temporary visa with no restrictions (e.g.,
-        doctoral student visa).
+        {t.hero.description4}
       </p>
       <div className="mt-8">
         <Socials />

@@ -7,6 +7,13 @@
     "demo": "Demo",
     "about": "About"
   },
+  "hero": {
+    "title": "Hi, I'm Frank",
+    "description1": "Fullstack Developer especially in Frontend side, with a passion for working on interesting projects and exploring new technologies.",
+    "description2": "I work with TypeScript and specialize in all-things web.",
+    "description3": "I thrive on collaborating with teams to deliver efficient, scalable, and visually appealing web applications.",
+    "description4": "Work Rights: Australian temporary visa with no restrictions (e.g., doctoral student visa)."
+  },
   "about": {
     "title": "About Me",
     "subtitle": "Full Stack Developer | Australian Tech Migrant",
