@@ -21,7 +21,7 @@ export default function Socials() {
             </Link>
             <Link
                 className="flex items-center justify-center w-8 h-8 p-[5px] duration-500 opacity-80 hover:opacity-100 border-muted-foreground "
-                href={"https://rednote.com"}
+                href={"https://www.xiaohongshu.com/user/profile/62012f2e00000000210243d2"}
                 target="_blank"
             >
                 <Image
