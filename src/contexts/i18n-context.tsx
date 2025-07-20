@@ -27,6 +27,7 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
       let storedLang = localStorage.getItem('lang') as Lang | null;
       if (!storedLang) {
         const browserLang = navigator.language;
+        // 默认使用英文，除非浏览器语言明确是中文
         storedLang = browserLang.startsWith('zh') ? 'zh' : 'en';
         localStorage.setItem('lang', storedLang);
       }
