@@ -93,7 +93,7 @@ export default function TechStack() {
     <div className="w-full space-y-12">
       <div>
         <h2 className="text-2xl font-bold text-gray-900 mb-8">
-          What can I do ?
+          My Tech Stack
         </h2>
         <h3 className="text-lg font-semibold text-gray-700 mb-4">
           In Frontend, I can do well in

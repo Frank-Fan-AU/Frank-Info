@@ -1,7 +1,7 @@
 'use client'
-import { useGLTF, useVideoTexture } from '@react-three/drei';
+import { useGLTF, useTexture } from '@react-three/drei';
 import { Group } from 'three';
-import { useRef, JSX, useEffect } from 'react';
+import { useRef, JSX } from 'react';
 import { GLTF } from 'three-stdlib';
 
 type GLTFResult = GLTF & {
@@ -12,7 +12,10 @@ type GLTFResult = GLTF & {
 const ComputerModel = (props: JSX.IntrinsicElements['group']) => {
     const group = useRef<Group>(null);
   const { scene: computerScene, nodes } = useGLTF('/models/computer.glb') as GLTFResult;
-  
+
+   // 1. 加载图片贴图
+   const imgTexture = useTexture('/code.png');
+  imgTexture.flipY = false; // 关键：防止图片上下颠倒
   // 使用 useVideoTexture 替代手动创建
 //   const txt = useVideoTexture('/zj-avator.jpg');
   
@@ -36,6 +39,18 @@ const ComputerModel = (props: JSX.IntrinsicElements['group']) => {
           <meshBasicMaterial map={txt} toneMapped={false} />
         </mesh>
       )} */}
+
+      {/* 2. 将图片贴到屏幕上（假设屏幕 mesh 名为 'monitor-screen'，位置参数需根据你的模型实际调整） */}
+      {imgTexture && nodes['monitor-screen'] && (
+                <mesh
+                    geometry={nodes['monitor-screen'].geometry}
+                    position={[0.127, 0.831, 0.52]}
+                    rotation={[1.571, -0.005, 0.031]}
+                    scale={[0.661, 0.608, 0.401]}
+                >
+                    <meshBasicMaterial map={imgTexture} toneMapped={false} />
+                </mesh>
+            )}
     </group>
   );
 }
