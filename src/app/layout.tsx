@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "@/contexts/i18n-context";
 import ParticleEffect from "@/components/ParticleEffect";
+import { Analytics } from '@vercel/analytics/next';
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
         <I18nProvider>
           <ParticleEffect />
           {children}
+          <Analytics />
         </I18nProvider>
       </body>
     </html>
