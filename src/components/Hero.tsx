@@ -59,7 +59,7 @@ export default function Hero() {
             <directionalLight position={[5, 10, 7]} intensity={1} />
             <Center>
             <Suspense fallback={null}>
-              <ComputerModel scale={[1.8, 1.8, 1.8]} position={[0, 0, 0]} rotation={[0, rotationY, 0]} />
+              <ComputerModel scale={[1.5, 1.5, 1.5]} position={[0, 0, 0]} rotation={[0, rotationY, 0]} />
             </Suspense>
               </Center>
             <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false}/>
