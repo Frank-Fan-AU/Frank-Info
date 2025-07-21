@@ -7,7 +7,7 @@ import useTranslation from '@/hooks/useTranslation';
 import { usePathname } from 'next/navigation';
 import Navbar from './Navbar';
 import { useState, useEffect } from 'react';
-
+import DarkModeToggle from "@/components/DarkModeToggle";
 export function Header() {
   const { language } = useI18n();
   const { t } = useTranslation();
@@ -72,7 +72,7 @@ export function Header() {
           {/* Language Switcher */}
           <div className={`flex items-center space-x-4 transition-all duration-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}>
             <LanguageSwitcher />
-            
+            <DarkModeToggle />
             {/* Mobile menu button */}
             <button 
               onClick={toggleMobileMenu}
