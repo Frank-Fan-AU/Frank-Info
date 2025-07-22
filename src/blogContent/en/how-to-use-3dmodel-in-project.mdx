@@ -1,0 +1,94 @@
+# How to Use 3D Models in Your Project
+
+Recently, I discovered a cool 3D model from a developer and found their code repository, so I implemented a simple version. Below, I'll demonstrate step by step how to use a .glb 3D model in your project in the simplest way possible.
+
+## Preparation
+
+### 1. Prepare 3D Model File
+
+First, we need a 3D file. Here I'm directly using the 3D file from the developer's project. Let's get it working first, then we can research where to find .glb files.
+
+Let's assume we have a 3D file named `computer.glb`, and we place it in the `public/models/` directory.
+
+### 2. Install Dependencies
+
+Since I'm using a TypeScript project, we need to install the following dependencies:
+
+```bash
+npm install three @react-three/fiber @react-three/drei
+npm install --save-dev @types/three
+```
+
+## Implementation Steps
+
+### 3. Create 3D Model Component
+
+Create a new file `/components/ComputerModel.tsx`:
+
+```tsx
+'use client'
+import { useGLTF } from '@react-three/drei';
+import { Group } from 'three';
+import { useRef, JSX } from 'react';
+import { GLTF } from 'three-stdlib';
+
+type GLTFResult = GLTF & {
+    nodes: any; // Can be defined based on actual model structure
+    materials: any;
+};
+
+const ComputerModel = (props: JSX.IntrinsicElements['group']) => {
+    const group = useRef<Group>(null);
+    const { scene: computerScene, nodes } = useGLTF('/models/computer.glb') as GLTFResult;
+
+    return (
+        <group ref={group} {...props}>
+            <primitive object={computerScene} position={[0, -1, 0]} />
+        </group>
+    );
+}
+
+export default ComputerModel;
+```
+
+### 4. Use Component in Page
+
+Use this 3D model in your page component:
+
+```tsx
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import { Suspense } from 'react';
+import ComputerModel from './components/ComputerModel';
+
+const App = () => {
+    return (
+        <div style={{ width: '100vw', height: '100vh' }}>
+            <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+                <ambientLight intensity={0.8} />
+                <directionalLight position={[5, 10, 7]} intensity={1} />
+
+                <Suspense fallback={null}>
+                    <ComputerModel scale={[1, 1, 1]} position={[0, 0, 0]} />
+                </Suspense>
+
+                <OrbitControls />
+            </Canvas>
+        </div>
+    );
+};
+
+export default App;
+```
+
+## Result
+
+At this point, when you run the project, you should be able to see the 3D model on the page! The next step is to ask GPT what each parameter means, then adjust the parameters to achieve the desired effect.
+
+## Summary
+
+It's actually quite simple, right?
+
+Using 3D models might seem like a complex thing before you start, but by breaking down the big, vague problem into a minimal working example first, then gradually building it up piece by piece, we can eventually master this technology.
+
+Of course, if you want to dive deep into Three.js, it can be quite complex. I've heard it involves knowledge of computer graphics and such. If you want to create your own models, you'd also need to learn Unity. But my requirement for this aspect is simple: if I have a .glb file provided to me, I can display it on the page, then fine-tune the details little by little - that's enough for me. 

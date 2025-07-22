@@ -15,9 +15,9 @@ export default function HomePage() {
       <div className="mt-16">
         <TechStack />
       </div>
-      {/* <div className="mt-16">
+      <div className="mt-16">
         <Project />
-      </div> */}
+      </div>
       <div className="mt-16">
         <Experience />
       </div>

@@ -54,7 +54,7 @@ export default function Hero() {
 
         {/* 右侧：3D电脑Canvas */}
         <div className="flex-shrink-0 z-10 flex mt-14 items-center justify-center w-full md:w-96 h-96 md:h-80 dark:bg-gray-900 ">
-          <Canvas camera={{ position: [3.5, 2.8, 6], fov: 50 }} style={{ width: '100%', height: '100%',zIndex:100 }}>
+          <Canvas camera={{ position: [3.5, 2.8, 6], fov: 40 }} style={{ width: '100%', height: '100%',zIndex:100 }}>
             <ambientLight intensity={Math.PI} />
             <directionalLight position={[5, 10, 7]} intensity={1} />
             <Center>

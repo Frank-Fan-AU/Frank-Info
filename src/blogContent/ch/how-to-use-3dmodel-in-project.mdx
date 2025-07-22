@@ -1,0 +1,94 @@
+# 如何在项目中使用3D模型
+
+最近发现有个大佬的3D模型很帅，于是找到了他的代码仓库，做了简单的实现。下面我就一步步来演示如何最简单的在自己的项目中使用一个.glb的3D模型。
+
+## 准备工作
+
+### 1. 准备3D模型文件
+
+首先我们需要有一个3D文件，这里我是直接用的大佬项目中的3D文件，先实践成功了咱再研究从哪里找.glb的问题。
+
+假设我们有一个3D文件，名字叫`computer.glb`，我们把它放在`public/models/`目录下。
+
+### 2. 安装依赖
+
+因为我是TypeScript的项目所以需要引入如下依赖：
+
+```bash
+npm install three @react-three/fiber @react-three/drei
+npm install --save-dev @types/three
+```
+
+## 实现步骤
+
+### 3. 创建3D模型组件
+
+创建一个新文件 `/components/ComputerModel.tsx`：
+
+```tsx
+'use client'
+import { useGLTF } from '@react-three/drei';
+import { Group } from 'three';
+import { useRef, JSX } from 'react';
+import { GLTF } from 'three-stdlib';
+
+type GLTFResult = GLTF & {
+    nodes: any; // 可根据实际模型结构定义
+    materials: any;
+};
+
+const ComputerModel = (props: JSX.IntrinsicElements['group']) => {
+    const group = useRef<Group>(null);
+    const { scene: computerScene, nodes } = useGLTF('/models/computer.glb') as GLTFResult;
+
+    return (
+        <group ref={group} {...props}>
+            <primitive object={computerScene} position={[0, -1, 0]} />
+        </group>
+    );
+}
+
+export default ComputerModel;
+```
+
+### 4. 在页面中使用组件
+
+在你的页面组件中使用这个3D模型：
+
+```tsx
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import { Suspense } from 'react';
+import ComputerModel from './components/ComputerModel';
+
+const App = () => {
+    return (
+        <div style={{ width: '100vw', height: '100vh' }}>
+            <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+                <ambientLight intensity={0.8} />
+                <directionalLight position={[5, 10, 7]} intensity={1} />
+
+                <Suspense fallback={null}>
+                    <ComputerModel scale={[1, 1, 1]} position={[0, 0, 0]} />
+                </Suspense>
+
+                <OrbitControls />
+            </Canvas>
+        </div>
+    );
+};
+
+export default App;
+```
+
+## 效果展示
+
+到这里运行项目就已经能看到3D模型在页面上了！接下来要做的就是问问GPT，每个参数是什么意思，然后调调参数，实现我们想要的效果。
+
+## 总结
+
+其实很简单对吧~
+
+使用3D模型这个事，做之前感觉是件很复杂的事情，但将模糊的大问题先做个最小实践，然后再一点点添砖加瓦，最后我们就能掌握这门技术。
+
+当然Three.js如果想深入学习的话还是蛮复杂的，据说要涉及到图形学啥的知识，想自己做模型的话还要学Unity，但我对这方面的要求就是有.glb文件提供给我，我能给他放到页面上展示出来，再一点点抠细节，就够了。

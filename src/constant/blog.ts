@@ -28,6 +28,15 @@ export const BLOG_ITEMS_EN: BlogItemProps[] = [
     tags: ["Tailwind CSS", "CSS", "UI"],
     is_featured: false,
     is_show: true,
+  },
+  {
+    title: "How to Use 3D Models in Your Project",
+    slug: "how-to-use-3dmodel-in-project",
+    description: "A step-by-step guide on how to integrate 3D models (.glb files) into your web project using Three.js and React Three Fiber",
+    updated_at: new Date("2025-01-27"),
+    tags: ["Three.js", "React Three Fiber", "3D", "WebGL"],
+    is_featured: false,
+    is_show: true,
   }
 ];
 
@@ -57,6 +66,15 @@ export const BLOG_ITEMS_ZH: BlogItemProps[] = [
     description: "这篇博客将告诉你为什么Tailwind CSS感觉如此合适",
     updated_at: new Date("2025-06-19"),
     tags: ["Tailwind CSS", "CSS", "UI"],
+    is_featured: false,
+    is_show: true,
+  },
+  {
+    title: "如何在项目中使用3D模型",
+    slug: "how-to-use-3dmodel-in-project",
+    description: "一步步教你如何使用Three.js和React Three Fiber在网页项目中集成3D模型(.glb文件)",
+    updated_at: new Date("2025-01-27"),
+    tags: ["Three.js", "React Three Fiber", "3D", "WebGL"],
     is_featured: false,
     is_show: true,
   }
