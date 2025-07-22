@@ -3,21 +3,26 @@ import { useGLTF, useTexture } from '@react-three/drei';
 import { Group } from 'three';
 import { useMemo, useRef, JSX } from 'react';
 import { GLTF } from 'three-stdlib';
+import React from 'react';
 
 type GLTFResult = GLTF & {
     nodes: any; // 可根据实际模型结构定义
     materials: any;
   };
 
-const ComputerModel = (props: JSX.IntrinsicElements['group']) => {
+interface ComputerModelProps extends React.ComponentProps<'group'> {
+  imgUrl?: string;
+}
+
+const ComputerModel = ({ imgUrl = '/code.png', ...props }: ComputerModelProps) => {
     const group = useRef<Group>(null);
-  const { scene: computerScene, nodes } = useGLTF('/models/computer.glb') as GLTFResult;
-  // 关键：clone 场景，避免多 Canvas 共享同一个对象
-  const clonedScene = useMemo(() => computerScene.clone(true), [computerScene]);
+    const { scene: computerScene, nodes } = useGLTF('/models/computer.glb') as GLTFResult;
+    // 关键：clone 场景，避免多 Canvas 共享同一个对象
+    const clonedScene = useMemo(() => computerScene.clone(true), [computerScene]);
 
    // 1. 加载图片贴图
-   const imgTexture = useTexture('/code.png');
-  imgTexture.flipY = false; // 关键：防止图片上下颠倒
+   const imgTexture = useTexture(imgUrl);
+   imgTexture.flipY = false; // 关键：防止图片上下颠倒
   // 使用 useVideoTexture 替代手动创建
 //   const txt = useVideoTexture('/zj-avator.jpg');
   

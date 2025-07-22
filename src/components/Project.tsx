@@ -5,7 +5,7 @@ import { SiNextdotjs, SiTailwindcss, SiVite, SiElement } from "react-icons/si";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { Center, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import ComputerModel from "./ComputerModel";
+import AnimatedComputerModel from "./AnimatedComputerModel";
 
 
 const projects = [
@@ -20,7 +20,7 @@ const projects = [
     {
         projectName: 'Project 2',
         projectDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
-        projectImage: 'https://via.placeholder.com/150',
+        projectImage: '/clmaster.png',
         githubLink: 'https://github.com/project2',
         websiteLink: 'https://project2.com',
         techStack: ['Vue', 'Vite', 'Element Plus'],
@@ -90,21 +90,20 @@ export default function Project() {
                         </button>
                     </div>
                 </div>
-                <div className=" rounded-lg p-6  flex items-center justify-center  lg:h-80 bg-amber-200" style={{ minHeight: '500px' }}>
+                <div className=" rounded-lg  flex items-center justify-center  lg:h-80 " style={{ minHeight: '500px' }}>
                     {/* <img src={currentProject.projectImage} alt={currentProject.projectName} className="w-full h-full object-cover " /> */}
                     <Canvas>
-            <ambientLight intensity={Math.PI} />
-            <directionalLight position={[10, 10, 5]} />
-            <Center>
-              <Suspense>
-                <group scale={0.2} position={[0, -1.5, 0]} rotation={[0, -0.1, 0]}>
-                  <ComputerModel />
-              
-                </group>
-              </Suspense>
-            </Center>
-            <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
-          </Canvas>
+                        <ambientLight intensity={Math.PI} />
+                        <directionalLight position={[10, 10, 5]} />
+                        <Center>
+                            <Suspense >
+                                <group scale={2.5} position={[0, -1, 0]} rotation={[0, -0.1, 0]}>
+                                    <AnimatedComputerModel key={selectedProjectIndex}  imgUrl={currentProject.projectImage}/>
+                                </group>
+                            </Suspense>
+                        </Center>
+                        <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+                    </Canvas>
                 </div>
             </div>
         </section>
