@@ -1,8 +1,12 @@
 'use client'
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaReact, FaVuejs, FaGithub } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiVite, SiElement } from "react-icons/si";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { Center, OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import ComputerModel from "./ComputerModel";
+
 
 const projects = [
     {
@@ -50,10 +54,10 @@ export default function Project() {
     };
     return (
         <section className="space-y-12">
-            <p className="text-5xl font-semibold mb-8 text-black dark:text-white">My Selected Work</p>
+            <p className="text-5xl text-center font-semibold mb-8 text-black dark:text-white">My Projects</p>
             <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-1 w-full kanit-regular">
 
-                <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-lg p-6 shadow-lg relative" style={{ minHeight: '320px' }}>
+                <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-lg p-6 shadow-lg relative" style={{ minHeight: '500px' }}>
                     <div className="flex justify-between items-center mb-4">
                         <h3 className="text-2xl font-semibold text-black dark:text-white">{currentProject.projectName}</h3>
                         <div className="flex gap-2">
@@ -86,8 +90,21 @@ export default function Project() {
                         </button>
                     </div>
                 </div>
-                <div className=" rounded-lg p-6  flex items-center justify-center h-64 lg:h-80">
-                    <img src={currentProject.projectImage} alt={currentProject.projectName} className="w-full h-full object-cover " />
+                <div className=" rounded-lg p-6  flex items-center justify-center  lg:h-80 bg-amber-200" style={{ minHeight: '500px' }}>
+                    {/* <img src={currentProject.projectImage} alt={currentProject.projectName} className="w-full h-full object-cover " /> */}
+                    <Canvas>
+            <ambientLight intensity={Math.PI} />
+            <directionalLight position={[10, 10, 5]} />
+            <Center>
+              <Suspense>
+                <group scale={0.2} position={[0, -1.5, 0]} rotation={[0, -0.1, 0]}>
+                  <ComputerModel />
+              
+                </group>
+              </Suspense>
+            </Center>
+            <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+          </Canvas>
                 </div>
             </div>
         </section>

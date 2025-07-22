@@ -1,7 +1,7 @@
 'use client'
 import { useGLTF, useTexture } from '@react-three/drei';
 import { Group } from 'three';
-import { useRef, JSX } from 'react';
+import { useMemo, useRef, JSX } from 'react';
 import { GLTF } from 'three-stdlib';
 
 type GLTFResult = GLTF & {
@@ -12,6 +12,8 @@ type GLTFResult = GLTF & {
 const ComputerModel = (props: JSX.IntrinsicElements['group']) => {
     const group = useRef<Group>(null);
   const { scene: computerScene, nodes } = useGLTF('/models/computer.glb') as GLTFResult;
+  // 关键：clone 场景，避免多 Canvas 共享同一个对象
+  const clonedScene = useMemo(() => computerScene.clone(true), [computerScene]);
 
    // 1. 加载图片贴图
    const imgTexture = useTexture('/code.png');
@@ -27,7 +29,7 @@ const ComputerModel = (props: JSX.IntrinsicElements['group']) => {
 
   return (
     <group ref={group} {...props}>
-      <primitive object={computerScene} position={[0, -1, 0]} />
+      <primitive object={clonedScene} position={[0, -1, 0]} />
       
       {/* 使用原始屏幕几何体完美嵌套视频 */}
       {/* {txt && nodes['monitor-screen'] && (

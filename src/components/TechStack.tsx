@@ -92,7 +92,7 @@ export default function TechStack() {
   return (
     <div className="w-full space-y-12">
       <div>
-        <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-8">
+        <h2 className="text-5xl text-center font-bold text-gray-900 dark:text-white mb-8">
           My Tech Stack
         </h2>
         <h3 className="text-lg font-semibold text-gray-700 mb-4">

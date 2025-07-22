@@ -7,20 +7,11 @@ import useTranslation from "@/hooks/useTranslation";
 import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
 import { Suspense, useState, useEffect } from 'react';
-import ComputerModel from "./ComputerModel";
+import LegoModel from "./LegoModel";
 
 export default function Hero() {
   const { t } = useTranslation();
-  const [scrollY, setScrollY] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // 计算一个合适的旋转角度（比如随滚动最大转45度）
-  const rotationY = (scrollY / 500) * Math.PI / 4; // 500px内最多转45度
 
   return (
     <div className="max-w-6xl w-full mx-auto">
@@ -53,16 +44,19 @@ export default function Hero() {
         </div>
 
         {/* 右侧：3D电脑Canvas */}
-        <div className="flex-shrink-0 z-10 flex mt-14 items-center justify-center w-full md:w-96 h-96 md:h-80 dark:bg-gray-900 ">
-          <Canvas camera={{ position: [3.5, 2.8, 6], fov: 40 }} style={{ width: '100%', height: '100%',zIndex:100 }}>
-            <ambientLight intensity={Math.PI} />
-            <directionalLight position={[5, 10, 7]} intensity={1} />
+        <div className="flex-shrink-0 overflow-auto z-10 flex mt-14 items-center justify-center w-full md:w-96 h-[400px] md:h-[400px] dark:bg-gray-900 bg-amber-300">
+        <Canvas camera={{ position: [1, 0.5, 6], fov: 60 }} >
+            <ambientLight intensity={1} />
+            <directionalLight position={[2, 3, 5]} />
             <Center>
-            <Suspense fallback={null}>
-              <ComputerModel scale={[1.5, 1.5, 1.5]} position={[0, 0, 0]} rotation={[0, rotationY, 0]} />
-            </Suspense>
-              </Center>
-            <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false}/>
+              <Suspense>
+               
+                  <LegoModel scale={[2.5, 2.5, 2.5]} position={[-3, 2, -1]} rotation={[0, Math.PI - 0.5, 0]} />
+              
+                
+              </Suspense>
+            </Center>
+            <OrbitControls  enableZoom={false} />
           </Canvas>
         </div>
       </div>

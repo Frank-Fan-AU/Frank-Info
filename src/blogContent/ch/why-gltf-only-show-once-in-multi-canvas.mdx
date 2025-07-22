@@ -1,0 +1,62 @@
+# 解决同一个GLB模型在多个Canvas中只显示一个的问题
+
+在用 React Three Fiber (`@react-three/fiber`) 和 Drei (`@react-three/drei`) 开发3D页面时，我们经常会遇到这样一个问题：**同一个GLB模型在页面的多个 `<Canvas>` 中只会显示在最后一个，前面的都渲染不出来。**
+
+## 现象
+
+比如你有如下代码，在两个地方都用到了同一个 `ComputerModel` 组件：
+
+```tsx
+<Canvas>
+  <ComputerModel />
+</Canvas>
+<Canvas>
+  <ComputerModel />
+</Canvas>
+```
+
+结果只有第二个 `<Canvas>` 能正常显示模型，第一个始终是空白。
+
+## 原因分析
+
+这个问题的根源在于：
+
+- Drei 的 `useGLTF` 会缓存同一个路径的模型。
+- Three.js 的 `scene`（或 `Object3D`）实例只能被一个 WebGL 渲染上下文（即一个 `<Canvas>`）“挂载”。
+- 当你把同一个 `scene` 对象传给多个 `<Canvas>`，只有最后一个会生效，前面的会渲染失败。
+
+## 解决方案
+
+**只需要在你的模型组件里对 `scene` 进行 clone，每个 `<Canvas>` 都用自己的副本即可。**
+
+### 代码示例
+
+假设你的 `ComputerModel.tsx` 组件如下：
+
+```tsx
+import { useGLTF } from '@react-three/drei';
+import { useMemo, useRef } from 'react';
+import { Group } from 'three';
+
+const ComputerModel = (props) => {
+  const group = useRef<Group>(null);
+  const { scene: computerScene } = useGLTF('/models/computer.glb');
+  // 关键：clone 场景，避免多 Canvas 共享同一个对象
+  const clonedScene = useMemo(() => computerScene.clone(true), [computerScene]);
+  return (
+    <group ref={group} {...props}>
+      <primitive object={clonedScene} position={[0, -1, 0]} />
+    </group>
+  );
+};
+export default ComputerModel;
+```
+
+这样无论你在页面上用多少个 `<Canvas>`，每个都能独立渲染自己的模型副本，互不影响。
+
+## 总结
+
+- 遇到“同一个GLB模型在多个Canvas只显示一个”的问题，记得 clone 一下 `scene`。
+- 这是 Three.js 和 React Three Fiber 资源管理的常见坑，clone 后一劳永逸。
+
+希望这篇文章能帮到你，遇到类似问题直接用 clone 方案即可！ 
