@@ -6,8 +6,31 @@ import useTranslation from "@/hooks/useTranslation";
 
 import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
-import { Suspense, useState, useEffect } from 'react';
+import { Suspense, useState, useEffect, useRef } from 'react';
 import LegoModel from "./LegoModel";
+import { useFrame } from '@react-three/fiber';
+
+// 自动旋转的LegoModel子组件
+function RotatingLegoModel() {
+  const groupRef = useRef<any>(null);
+  useFrame(() => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y += 0.005;
+    }
+  });
+  return (
+    <group
+      ref={groupRef}
+      scale={[2.5, 2.5, 2.5]}
+      position={[-1, 0, -1]}
+      rotation={[0, Math.PI - 0.5, 0]}
+    >
+      <Center>
+        <LegoModel />
+      </Center>
+    </group>
+  );
+}
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -44,16 +67,13 @@ export default function Hero() {
         </div>
 
         {/* 右侧：3D电脑Canvas */}
-        <div className="flex-shrink-0 overflow-auto z-10 flex mt-14 items-center justify-center w-full md:w-96 h-[400px] md:h-[400px] dark:bg-gray-900 bg-amber-300">
+        <div className="flex-shrink-0 overflow-auto z-10 flex mt-14 items-center justify-center w-full md:w-96 h-[400px] md:h-[400px] dark:bg-gray-900">
         <Canvas camera={{ position: [1, 0.5, 6], fov: 60 }} >
             <ambientLight intensity={1} />
             <directionalLight position={[2, 3, 5]} />
             <Center>
               <Suspense>
-               
-                  <LegoModel scale={[2.5, 2.5, 2.5]} position={[-3, 2, -1]} rotation={[0, Math.PI - 0.5, 0]} />
-              
-                
+                <RotatingLegoModel />
               </Suspense>
             </Center>
             <OrbitControls  enableZoom={false} />
