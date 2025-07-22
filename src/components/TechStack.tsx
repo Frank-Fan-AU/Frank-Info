@@ -103,6 +103,7 @@ export default function TechStack() {
           {FrontendTechnologies.map((tech, index) => (
 
             <motion.div
+            key={index}
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -111,7 +112,6 @@ export default function TechStack() {
             }}
             >
             <TechCard
-              key={index}
               icon={tech.icon}
               name={tech.name}
               description={tech.description}

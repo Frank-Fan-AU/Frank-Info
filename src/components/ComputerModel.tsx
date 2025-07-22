@@ -1,7 +1,7 @@
 'use client'
 import { useGLTF, useTexture } from '@react-three/drei';
 import { Group } from 'three';
-import { useMemo, useRef, JSX } from 'react';
+import { useMemo, useRef } from 'react';
 import { GLTF } from 'three-stdlib';
 import React from 'react';
 

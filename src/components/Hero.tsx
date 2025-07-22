@@ -6,7 +6,7 @@ import useTranslation from "@/hooks/useTranslation";
 
 import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
-import { Suspense, useState, useEffect, useRef } from 'react';
+import { Suspense, useRef } from 'react';
 import LegoModel from "./LegoModel";
 import { useFrame } from '@react-three/fiber';
 

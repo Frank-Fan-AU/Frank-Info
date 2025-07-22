@@ -1,5 +1,5 @@
 'use client'
-import { useGLTF, useTexture } from '@react-three/drei';
+import { useGLTF } from '@react-three/drei';
 import { Group } from 'three';
 import { useMemo, useRef, JSX } from 'react';
 import { GLTF } from 'three-stdlib';
@@ -11,7 +11,7 @@ type GLTFResult = GLTF & {
 
 const LegoModel = (props: JSX.IntrinsicElements['group']) => {
     const group = useRef<Group>(null);
-  const { scene: computerScene, nodes } = useGLTF('/models/lego_man.glb') as GLTFResult;
+  const { scene: computerScene } = useGLTF('/models/lego_man.glb') as GLTFResult;
   // 关键：clone 场景，避免多 Canvas 共享同一个对象
   const clonedScene = useMemo(() => computerScene.clone(true), [computerScene]);
 
