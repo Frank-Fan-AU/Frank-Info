@@ -1,3 +1,4 @@
+'use client'
 import { FaJava } from "react-icons/fa";
 import { 
   SiJavascript,
@@ -28,7 +29,7 @@ import {
 } from 'react-icons/si';
 import { LiaAws } from "react-icons/lia";
 import TechCard from './TechCard';
-
+import { motion } from "motion/react"
 // 自定义Playwright图标组件
 const PlaywrightIcon = ({ className }: { className?: string }) => (
   <svg 
@@ -100,6 +101,15 @@ export default function TechStack() {
         </h3>
         <div className="flex flex-wrap gap-3 mb-8">
           {FrontendTechnologies.map((tech, index) => (
+
+            <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+                duration: 0.4,
+                scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+            }}
+            >
             <TechCard
               key={index}
               icon={tech.icon}
@@ -107,6 +117,7 @@ export default function TechStack() {
               description={tech.description}
               className={tech.className}
             />
+            </motion.div>
           ))}
         </div>
       </div>
