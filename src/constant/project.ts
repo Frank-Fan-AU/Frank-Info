@@ -8,7 +8,7 @@ export const PROJECT_ITEMS_EN: ProjectItemProps[] = [
         image: "/images/projectImages/visa-dashoard.png",
         link_demo: "https://visadashboard.top",
         link_github: "https://github.com/Frank-Fan-AU/visa-dashboard",
-        stacks: ["Next.js", "TypeScript", "TailwindCSS", "MongoDB", "AwsAmplify", "Amazon S3"],
+        stacks: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "AwsAmplify", "Amazon S3"],
         is_show: true,
         is_featured: true,
         updated_at: new Date("2024-03-15")
@@ -47,7 +47,7 @@ export const PROJECT_ITEMS_ZH: ProjectItemProps[] = [
         image: "/images/projectImages/visa-dashoard.png",
         link_demo: "https://visadashboard.top",
         link_github: "https://github.com/Frank-Fan-AU/visa-dashboard",
-        stacks: ["Next.js", "TypeScript", "TailwindCSS", "MongoDB", "AwsAmplify", "Amazon S3"],
+        stacks: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Aws Amplify", "Amazon S3"],
         is_show: true,
         is_featured: true,
         updated_at: new Date("2024-03-15")
@@ -91,7 +91,7 @@ export const HOME_PROJECT_ITEMS_EN: ProjectItemProps[] = [
     image: "/projectImages/visadashboard.png",
     link_demo: "https://visadashboard.top",
     link_github: "https://github.com/Frank-Fan-AU/visa-dashboard",
-    stacks: ["React", "Next.js", "Express.js", "TypeScript", "TailwindCSS","shadcn/ui", "MongoDB","Contentful CMS", "AwsAmplify", "Amazon S3"],
+    stacks: ["React", "Next.js", "Express.js", "TypeScript", "Tailwind CSS","shadcn/ui", "MongoDB","Contentful CMS", "AWS Amplify", "AWS S3"],
     is_show: true,
     is_featured: true,
     updated_at: new Date("2024-03-15")
@@ -108,7 +108,7 @@ export const HOME_PROJECT_ITEMS_EN: ProjectItemProps[] = [
     image: "/projectImages/clmaster.png",
     link_demo: "https://visadashboard.top",
     link_github: "https://github.com/Frank-Fan-AU/visa-dashboard",
-    stacks: ["React","Next.js", "TypeScript", "TailwindCSS","shadcn/ui","OpenAI API","Vercel"],
+    stacks: ["React","Next.js", "TypeScript", "Tailwind CSS","shadcn/ui","OpenAI API","Vercel","Stripe"],
     is_show: true,
     is_featured: true,
     updated_at: new Date("2024-03-15")
@@ -126,7 +126,7 @@ export const HOME_PROJECT_ITEMS_EN: ProjectItemProps[] = [
     image: "/projectImages/frankInfo.png",
     link_demo: "https://frank-portfolio.vercel.app",
     link_github: "https://github.com/Frank-Fan-AU/frank-portfolio",
-    stacks: ["React","Next.js", "TypeScript", "TailwindCSS","shadcn/ui","Three.js","MDX","Vercel"],
+    stacks: ["React","Next.js", "TypeScript", "Tailwind CSS","shadcn/ui","Three.js","MDX","Vercel"],
     is_show: true,
     is_featured: true,
     updated_at: new Date("2024-03-15")
@@ -147,7 +147,7 @@ export const HOME_PROJECT_ITEMS_ZH: ProjectItemProps[] = [
     image: "/projectImages/visadashboard.png",
     link_demo: "https://visadashboard.top",
     link_github: "https://github.com/Frank-Fan-AU/visa-dashboard",
-    stacks: ["React", "Next.js", "Express.js", "TypeScript", "TailwindCSS","shadcn/ui", "MongoDB","Contentful CMS", "AwsAmplify", "Amazon S3"],
+    stacks: ["React", "Next.js", "Express.js", "TypeScript", "Tailwind CSS","shadcn/ui", "MongoDB","Contentful CMS", "AWS Amplify", "AWS S3"],
     is_show: true,
     is_featured: true,
     updated_at: new Date("2024-03-15")
@@ -164,7 +164,7 @@ export const HOME_PROJECT_ITEMS_ZH: ProjectItemProps[] = [
     image: "/projectImages/clmaster.png",
     link_demo: "https://visadashboard.top",
     link_github: "https://github.com/Frank-Fan-AU/visa-dashboard",
-    stacks: ["React","Next.js", "TypeScript", "TailwindCSS","shadcn/ui","OpenAI API","Vercel"],
+    stacks: ["React","Next.js", "TypeScript", "Tailwind CSS","shadcn/ui","OpenAI API","Vercel","Stripe"],
     is_show: true,
     is_featured: true,
     updated_at: new Date("2024-03-15")
@@ -182,7 +182,7 @@ export const HOME_PROJECT_ITEMS_ZH: ProjectItemProps[] = [
     image: "/projectImages/frankInfo.png",
     link_demo: "https://frank-portfolio.vercel.app",
     link_github: "https://github.com/Frank-Fan-AU/frank-portfolio",
-    stacks: ["React","Next.js", "TypeScript", "TailwindCSS","shadcn/ui","Three.js","MDX","Vercel"],
+    stacks: ["React","Next.js", "TypeScript", "Tailwind CSS","shadcn/ui","Three.js","MDX","Vercel"],
     is_show: true,
     is_featured: true,
     updated_at: new Date("2024-03-15")

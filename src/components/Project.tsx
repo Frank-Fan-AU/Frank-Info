@@ -8,6 +8,7 @@ import { Canvas } from "@react-three/fiber";
 import AnimatedComputerModel from "./AnimatedComputerModel";
 import { useI18n } from "@/contexts/i18n-context";
 import { HOME_PROJECT_ITEMS_EN, HOME_PROJECT_ITEMS_ZH } from "@/constant/project";
+import TechIcon from "./TechIcon";
 
 
 export default function Project() {
@@ -28,23 +29,16 @@ export default function Project() {
 
     const currentProject = projects[selectedProjectIndex];
     // 技术栈图标映射
-    const techIcons = {
-        'React': <FaReact className="w-5 h-5 text-sky-500" title="React" />,
-        'Next.js': <SiNextdotjs className="w-5 h-5 text-black dark:text-white" title="Next.js" />,
-        'Tailwind CSS': <SiTailwindcss className="w-5 h-5 text-cyan-400" title="Tailwind CSS" />,
-        'Vue': <FaVuejs className="w-5 h-5 text-green-500" title="Vue" />,
-        'Vite': <SiVite className="w-5 h-5 text-purple-400" title="Vite" />,
-        'Element Plus': <SiElement className="w-5 h-5 text-blue-400" title="Element Plus" />,
-    };
+
     return (
         <section className="space-y-12">
             <p className="text-5xl text-center font-semibold mb-8 text-black dark:text-white">My Projects</p>
             <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-1 w-full kanit-regular">
 
-                <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-lg p-6 shadow-lg relative" style={{ minHeight: '600px' }}>
+                <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-lg p-6 shadow-lg relative h-[620px]">
                     <div className="flex justify-between items-center mb-4">
                         <h3 className="text-2xl font-semibold text-black dark:text-white">{currentProject.title}</h3>
-                        <div className="flex gap-2">
+                        <div className="flex gap-6">
                             <a href={currentProject.link_github} target="_blank" rel="noopener noreferrer" title="GitHub">
                                 <FaGithub className="w-5 h-5 text-gray-700 dark:text-gray-200 hover:text-blue-500 transition" />
                             </a>
@@ -57,9 +51,7 @@ export default function Project() {
                     {/* 技术栈logo区块 */}
                     <div className="flex flex-wrap gap-2 mb-4">
                         {currentProject.stacks && currentProject.stacks.map((tech) => (
-                            <span key={tech} title={tech} className="inline-flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded p-1 mr-1 mb-1">
-                                {techIcons[tech as keyof typeof techIcons] || <span className="text-xs text-gray-800 dark:text-gray-200">{tech}</span>}
-                            </span>
+                            <TechIcon key={tech} tech={tech} ifShort={false} className="mr-1 mb-1 bg-gray-100 dark:bg-gray-700 rounded p-1" />
                         ))}
                     </div>
                     {/* 预留空间防止内容被按钮遮挡 */}
@@ -74,7 +66,7 @@ export default function Project() {
                         </button>
                     </div>
                 </div>
-                <div className=" rounded-lg  flex items-center justify-center  lg:h-80 " style={{ minHeight: '600px' }}>
+                <div className=" rounded-lg  flex items-center justify-center h-[620px]">
                     {/* <img src={currentProject.projectImage} alt={currentProject.projectName} className="w-full h-full object-cover " /> */}
                     <Canvas>
                         <ambientLight intensity={Math.PI} />
