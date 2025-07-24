@@ -1,7 +1,6 @@
 'use client'
 import { Suspense, useState } from "react";
-import { FaArrowLeft, FaArrowRight, FaReact, FaVuejs, FaGithub } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiVite, SiElement } from "react-icons/si";
+import { FaArrowLeft, FaArrowRight, FaGithub } from "react-icons/fa";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { Center, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";

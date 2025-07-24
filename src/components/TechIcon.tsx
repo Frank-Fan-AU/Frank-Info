@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaReact, FaVuejs, FaJava } from 'react-icons/fa';
+import {FaJava } from 'react-icons/fa';
 import {
   SiJavascript,
   SiJest,
@@ -29,10 +29,11 @@ import {
 } from 'react-icons/si';
 import { LiaAws } from 'react-icons/lia';
 import * as Tooltip from '@radix-ui/react-tooltip';
+import Image from 'next/image';
 
 // 自定义SVG图标组件
 const SvgIcon = ({ src, className }: { src: string; className?: string }) => (
-  <img src={src} alt="" className={className} />
+  <Image src={src} alt="" width={20} height={20} className={className} />
 );
 
 // 技术名到icon的映射
