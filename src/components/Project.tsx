@@ -28,6 +28,7 @@ export default function Project() {
     };
 
     const currentProject = projects[selectedProjectIndex];
+    
     // 技术栈图标映射
 
     return (
@@ -66,20 +67,32 @@ export default function Project() {
                         </button>
                     </div>
                 </div>
-                <div className=" rounded-lg  flex items-center justify-center h-[620px]">
-                    {/* <img src={currentProject.projectImage} alt={currentProject.projectName} className="w-full h-full object-cover " /> */}
-                    <Canvas>
-                        <ambientLight intensity={Math.PI} />
-                        <directionalLight position={[10, 10, 5]} />
-                        <Center>
-                            <Suspense >
-                                <group scale={2.5} position={[0, -1, 0]} rotation={[0, -0.1, 0]}>
-                                    <AnimatedComputerModel key={selectedProjectIndex}  imgUrl={currentProject.image}/>
-                                </group>
-                            </Suspense>
-                        </Center>
-                        <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
-                    </Canvas>
+                <div className=" rounded-lg  flex items-center justify-center h-[620px] relative">
+                    {/* 渲染所有项目，但只显示当前选中的，确保所有项目都能正确显示 */}
+                    {projects.map((project, index) => (
+                        <div
+                            key={project.slug}
+                            className={`absolute inset-0 ${
+                                index === selectedProjectIndex ? 'opacity-100' : 'opacity-0'
+                            } transition-opacity duration-300`}
+                        >
+                            <Canvas>
+                                <ambientLight intensity={Math.PI} />
+                                <directionalLight position={[10, 10, 5]} />
+                                <Center>
+                                    <Suspense>
+                                        <group scale={2.5} position={[0, -1, 0]} rotation={[0, -0.1, 0]}>
+                                            <AnimatedComputerModel 
+                                                key={`${project.slug}-${selectedProjectIndex}`} 
+                                                imgUrl={project.image} 
+                                            />
+                                        </group>
+                                    </Suspense>
+                                </Center>
+                                <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+                            </Canvas>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
