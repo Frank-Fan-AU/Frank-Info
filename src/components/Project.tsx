@@ -35,7 +35,7 @@ export default function Project() {
             <p className="text-5xl text-center font-semibold mb-8 text-black dark:text-white">My Projects</p>
             <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-1 w-full kanit-regular">
 
-                <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-lg p-6 shadow-lg relative h-[620px]">
+                <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-lg p-6 shadow-lg relative min-h-[620px]">
                     <div className="flex justify-between items-center mb-4">
                         <h3 className="text-2xl font-semibold text-black dark:text-white">{currentProject.title}</h3>
                         <div className="flex gap-6">
@@ -66,7 +66,7 @@ export default function Project() {
                         </button>
                     </div>
                 </div>
-                <div className=" rounded-lg  flex items-center justify-center h-[620px] relative">
+                <div className=" rounded-lg  flex items-center justify-center min-h-[620px] relative">
                     {/* 渲染所有项目，但只显示当前选中的，确保所有项目都能正确显示 */}
                     {projects.map((project, index) => (
                         <div

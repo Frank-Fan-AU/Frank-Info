@@ -23,10 +23,10 @@ export function LanguageSwitcher() {
     <button
       onClick={handleLanguageSwitch}
       className="flex items-center gap-2 px-3 py-2 rounded-md bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-      title={language === 'zh' ? '🇨🇳 中文' : '🇺🇸 English'}
+      title={language === 'zh' ? '🇨🇳' : '🇺🇸'}
     >
       <span className="text-sm font-medium">
-        {language === 'zh' ? '🇨🇳 中文' : '🇺🇸 English'}
+        {language === 'zh' ? '🇨🇳' : '🇺🇸'}
       </span>
       <svg
         className="w-4 h-4"
